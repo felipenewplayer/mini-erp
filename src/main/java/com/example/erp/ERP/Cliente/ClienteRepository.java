@@ -1,4 +1,6 @@
 package com.example.erp.ERP.Cliente;
 
-public class ClienteRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ClienteRepository extends JpaRepository<Cliente,Long> {
 }

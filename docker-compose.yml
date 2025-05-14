@@ -1,38 +1,44 @@
-version: '3.8'
-
 services:
   mysql:
     image: mysql:8.0
     container_name: mysql-erp
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: erpdb
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - erp-network
+      erp-network:
+        aliases:
+          - mysql
 
   erp-app:
     build: .
     container_name: erp-backend
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/erpdb
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/erpdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
     networks:
-      - erp-network
-
-volumes:
-  mysql_data:
+      erp-network:
+        aliases:
+          - erp-app
 
 networks:
   erp-network:
+    driver: bridge
+    name: erp-network
+
+volumes:
+  mysql_data:
+    name: mysql_data
