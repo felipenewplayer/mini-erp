@@ -3,12 +3,14 @@ package com.example.erp.ERP.Cliente;
 import com.example.erp.ERP.Pedido.Pedido;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+
 @Entity
 @Table(name = "clientes")
 public class Cliente {
@@ -30,4 +32,14 @@ public class Cliente {
     @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<>();
+
+    public Cliente(Long id, String nome, String email, String telefone) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
+    public Cliente() {
+    }
 }
