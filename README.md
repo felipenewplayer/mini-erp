@@ -1,4 +1,5 @@
-
+# Mini-ERP - Sistema de Gestão Empresarial
+O Mini-ERP é um sistema de gestão empresarial desenvolvido em Java com Spring Boot para gerenciamento de produtos, pedidos e clientes. Ele foi projetado para pequenas e médias empresas que necessitam de uma solução simples e eficaz para controle de vendas e estoque.
 
 | Módulo       | Responsabilidade Principal                   |
 | ------------ | -------------------------------------------- |
