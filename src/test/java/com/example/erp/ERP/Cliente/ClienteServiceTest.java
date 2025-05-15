@@ -1,6 +1,5 @@
 package com.example.erp.ERP.Cliente;
-
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,20 +7,17 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
 public class ClienteServiceTest {
-
 
     @Mock
     private ClienteRepository repository;
@@ -29,54 +25,49 @@ public class ClienteServiceTest {
     @InjectMocks
     private ClienteService service;
 
+    private Cliente cliente;
+
+    @BeforeEach
+    void setUp() {
+        cliente = new Cliente(1L, "Felipe", "felipe@gmail.com", "942170975");
+    }
+
     @Test
     @DisplayName("Deve retornar uma lista de cliente")
-    public void deveRetornaUmListaCliente() {
-        Cliente cliente = new Cliente(1l,  "Felipe", "felipeaperei2014@gmail.com","942170975");
+    void deveRetornarListaDeClientes() {
         Mockito.when(repository.findAll()).thenReturn(Collections.singletonList(cliente));
         List<Cliente> clientes = service.listaDeCliente();
-
-        Assertions.assertEquals(1, clientes.size());
-
+        assertThat(clientes).hasSize(1);
     }
     @Test
-    void retornaClienteNaoEncontrado() {
-        // Simula um cliente não encontrado
+    @DisplayName("Deve retorna vazio quando cliente não existe")
+    void deveRetornarVazioQuandoClienteNaoExiste() {
         when(repository.findById(2L)).thenReturn(Optional.empty());
-
         Optional<Cliente> resultado = service.retornaUmCliente(2L);
-
         assertFalse(resultado.isPresent(), "Cliente não deveria ser encontrado.");
     }
 
     @Test
     @DisplayName("Deve criar um cliente com sucesso")
-    void criarUmCliente() {
+    void deveCriarUmClienteComSucesso() {
+        when(repository.save(any(Cliente.class))).thenReturn(cliente);
+        Cliente resultado = service.criarCliente(cliente);
+        assertThat(resultado).isEqualTo(cliente);
+    }
 
-        // Arrange: cria o cliente de entrada (sem ID)
-        Cliente clienteParaSalvar = new Cliente();
-        clienteParaSalvar.setNome("Felipe");
-        clienteParaSalvar.setEmail("felipe@gmail.com");
-        clienteParaSalvar.setTelefone("942170975");
+    @Test
+    @DisplayName("Deve retornar um cliente")
+    void deveRetornarUmCliente(){
+        Mockito.when(repository.findById(1L)).thenReturn(Optional.of(cliente));
+        Optional<Cliente> resultado = service.retornaUmCliente(1L);
+        assertThat(resultado).isPresent();
+        assertThat(resultado.get().getNome()).isEqualTo("Felipe");
+    }
 
-        // Simula o retorno com ID, como se tivesse sido salvo no banco
-        Cliente clienteSalvo = new Cliente(
-                1L,
-                "Felipe",
-                "felipe@gmail.com",
-                "942170975");
-
-        // Configura o mock do repository
-        when(repository.save(any(Cliente.class))).thenReturn(clienteSalvo);
-
-        // Act: chama o serviço
-        Cliente resultado = service.criarCliente(clienteParaSalvar);
-
-        // Assert: validações
-        assertThat(resultado).isNotNull();
-        assertThat(resultado.getId()).isEqualTo(1L);
-        assertThat(resultado.getNome()).isEqualTo("Felipe");
-        assertThat(resultado.getEmail()).isEqualTo("felipe@gmail.com");
-        assertThat(resultado.getTelefone()).isEqualTo("942170975");
+    @Test
+    @DisplayName("Deve deletar cliente")
+    void deveDeletarCliente(){
+        service.deletarCliente(1L);
+        verify(repository,times(1)).deleteById(cliente.getId());
     }
 }
