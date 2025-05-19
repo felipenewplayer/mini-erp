@@ -1,8 +1,10 @@
 package com.example.erp.ERP.Produto;
 
+import com.example.erp.ERP.Config.TratadorDeErros;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -14,8 +16,9 @@ public class ProdutoService {
         this.repository = repository;
     }
 
-    public Optional<Produto> buscarUmProduto(Long id){
-        return repository.findById(id);
+    public Produto buscarUmProduto(Long id){
+        return repository.findById(id).orElseThrow(()->
+                new TratadorDeErros.RecursoNaoEncontradoException("Produto com id " + id + "não encontrado"));
     }
 
     public List<Produto> retornaUmListaDeProduto(){

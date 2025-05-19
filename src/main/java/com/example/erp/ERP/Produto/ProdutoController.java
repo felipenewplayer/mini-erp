@@ -18,9 +18,8 @@ public class ProdutoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Produto>buscarUmProduto(@PathVariable Long id){
-        Optional<Produto> produto = service.buscarUmProduto(id);
-        return produto.map(ResponseEntity::ok)
-                .orElseGet(()->ResponseEntity.notFound().build());
+        Produto produto = service.buscarUmProduto(id);
+        return ResponseEntity.ok(produto);
     }
 
     @GetMapping
@@ -29,8 +28,9 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public Produto criarUmProduto(@RequestBody Produto produto){
-        return service.criarUmProduto(produto);
+    public ResponseEntity<Produto> criarUmProduto(@RequestBody Produto produto){
+        Produto produtoNovo = service.criarUmProduto(produto);
+        return ResponseEntity.ok(produto);
     }
 
     @DeleteMapping("/{id}")

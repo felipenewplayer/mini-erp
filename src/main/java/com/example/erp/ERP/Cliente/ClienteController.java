@@ -1,9 +1,11 @@
 package com.example.erp.ERP.Cliente;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -12,17 +14,14 @@ public class
 ClienteController {
 
     private final ClienteService service;
-
-    public ClienteController(ClienteService service) {
+    public ClienteController(ClienteService service  ) {
         this.service = service;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Cliente>buscarUmCliente(@PathVariable Long id){
-        Optional<Cliente> cliente = service.retornaUmCliente(id);
-        return cliente.map(ResponseEntity::ok)
-                .orElseGet(()->ResponseEntity.notFound().build());
-
+    public ResponseEntity<Cliente> retornarUmCliente(@PathVariable Long id) {
+         Cliente cliente = service.buscarUmCliente(id);
+         return ResponseEntity.ok(cliente);
     }
     @GetMapping
     public List<Cliente> retornarListaCliente(){
@@ -30,9 +29,9 @@ ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> criarClientes(@RequestBody Cliente cliente ){
+    public ResponseEntity<Cliente> criarClientes (@RequestBody Cliente cliente ){
         Cliente criandoCliente = service.criarCliente(cliente);
-        return ResponseEntity.ok(criandoCliente);
+        return ResponseEntity.status(HttpStatus.CREATED).body(criandoCliente);
     }
 
     @DeleteMapping("/{id}")

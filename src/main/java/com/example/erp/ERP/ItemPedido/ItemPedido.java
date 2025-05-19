@@ -2,6 +2,7 @@ package com.example.erp.ERP.ItemPedido;
 
 import com.example.erp.ERP.Pedido.Pedido;
 import com.example.erp.ERP.Produto.Produto;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,6 +16,7 @@ public class ItemPedido {
 
     @ManyToOne
     @JoinColumn(name = "pedido_id")
+    @JsonBackReference
     private Pedido pedido;
 
     @ManyToOne

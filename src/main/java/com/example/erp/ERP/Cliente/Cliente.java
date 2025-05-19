@@ -4,17 +4,20 @@ import com.example.erp.ERP.Pedido.Pedido;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-
+@Builder
 @Entity
 @Table(name = "clientes")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cliente {
-
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -26,20 +29,10 @@ public class Cliente {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(length = 11)
+    @Column(length = 11, nullable = false, unique = true)
     private String telefone;
 
     @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<>();
-
-    public Cliente(Long id, String nome, String email, String telefone) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-    }
-
-    public Cliente() {
-    }
 }
