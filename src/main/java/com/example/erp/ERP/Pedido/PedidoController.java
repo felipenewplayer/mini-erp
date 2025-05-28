@@ -1,6 +1,7 @@
 package com.example.erp.ERP.Pedido;
 
 import com.example.erp.ERP.Cliente.ClienteService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,12 @@ import java.util.List;
 @RequestMapping("/pedidos")
 public class PedidoController {
 
+    private final PedidoProducer producer;
     private final PedidoService service;
     private final ClienteService clienteService;
 
-    public PedidoController(PedidoService service, ClienteService clienteService) {
-
+    public PedidoController(PedidoProducer producer, PedidoService service, ClienteService clienteService) {
+        this.producer = producer;
         this.service = service;
         this.clienteService = clienteService;
     }
@@ -32,8 +34,9 @@ public class PedidoController {
     }
 
     @PostMapping()
-    public ResponseEntity<Pedido> criarPedido(@RequestBody Pedido pedido) {
+    public ResponseEntity<Pedido> criarPedido(@RequestBody @Valid Pedido pedido) {
         Pedido novoPedido = service.criarUmPedido(pedido);
+        producer.enviarPedido(novoPedido);
         return ResponseEntity.status(HttpStatus.CREATED).body(novoPedido);
     }
 

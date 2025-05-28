@@ -1,10 +1,10 @@
 package com.example.erp.ERP.Produto;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/produtos")
@@ -28,7 +28,8 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity<Produto> criarUmProduto(@RequestBody Produto produto){
+    public ResponseEntity<Produto> criarUmProduto(@RequestBody @Valid Produto produto){
+
         Produto produtoNovo = service.criarUmProduto(produto);
         return ResponseEntity.ok(produto);
     }
@@ -36,7 +37,7 @@ public class ProdutoController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarUmProduto(@PathVariable Long id){
         service.deletarProduto(id);
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.noContent().build();
     }
 }
 

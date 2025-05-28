@@ -1,12 +1,11 @@
 package com.example.erp.ERP.Cliente;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/clientes")
@@ -20,8 +19,8 @@ ClienteController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Cliente> retornarUmCliente(@PathVariable Long id) {
-         Cliente cliente = service.buscarUmCliente(id);
-         return ResponseEntity.ok(cliente);
+        Cliente cliente = service.buscarUmCliente(id);
+        return ResponseEntity.ok(cliente);
     }
     @GetMapping
     public List<Cliente> retornarListaCliente(){
@@ -29,7 +28,7 @@ ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> criarClientes (@RequestBody Cliente cliente ){
+    public ResponseEntity<Cliente> criarClientes (@RequestBody @Valid Cliente cliente ){
         Cliente criandoCliente = service.criarCliente(cliente);
         return ResponseEntity.status(HttpStatus.CREATED).body(criandoCliente);
     }

@@ -3,10 +3,7 @@ package com.example.erp.ERP.Cliente;
 import com.example.erp.ERP.Pedido.Pedido;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +14,8 @@ import java.util.List;
 @Table(name = "clientes")
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = "pedidos")
+
 public class Cliente {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,4 +34,5 @@ public class Cliente {
     @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<>();
+
 }

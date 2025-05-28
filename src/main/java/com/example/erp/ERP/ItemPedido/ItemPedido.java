@@ -5,9 +5,11 @@ import com.example.erp.ERP.Produto.Produto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
+@ToString(exclude = "pedido")
 public class ItemPedido {
 
     @Id

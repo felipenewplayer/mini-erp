@@ -5,10 +5,7 @@ import com.example.erp.ERP.Cliente.Cliente;
 import com.example.erp.ERP.ItemPedido.ItemPedido;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,6 +17,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = {"cliente", "itens"})
 public class Pedido {
 
     @Id
