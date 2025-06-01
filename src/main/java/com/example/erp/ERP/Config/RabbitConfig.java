@@ -1,3 +1,4 @@
+/*
 package com.example.erp.ERP.Config;
 
 import org.springframework.amqp.core.Queue;
@@ -32,3 +33,4 @@ public class RabbitConfig {
         return rabbitTemplate;
     }
 }
+*/

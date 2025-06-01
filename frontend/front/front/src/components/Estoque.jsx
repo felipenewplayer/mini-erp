@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 
 export default function Estoque() {
-  const [produtos, setProdutos] = useState([]);
+  const [produtos, setProdutos] = useState([{
+    nome: "Cama",
+    preco: 99,
+    estoque:{
+      id:1,
+      quantidadeAtual:1
+    }
+  }]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
       fetch("http://localhost:8080/produtos")
         .then(res => res.json())
         .then(data => setProdutos(data));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
+    }, []);
   return (
     <div className="container">
       <h2>Estoque</h2>

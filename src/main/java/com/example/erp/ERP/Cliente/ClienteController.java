@@ -9,8 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/clientes")
-public class
-ClienteController {
+public class ClienteController {
 
     private final ClienteService service;
     public ClienteController(ClienteService service  ) {
