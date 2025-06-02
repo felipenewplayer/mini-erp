@@ -1,10 +1,8 @@
 package com.example.erp.ERP.Transacao;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +23,17 @@ public class TransacaoController {
     @GetMapping
     public ResponseEntity<List<Transacao>> listarTodas() {
         return ResponseEntity.ok(service.buscatListaDeTransacao());
+    }
+
+    @PostMapping
+    public ResponseEntity<Transacao> criarTransacao(@RequestBody Transacao transacao){
+        Transacao transacaoNova = service.criaUmaTransacao(transacao);
+        return ResponseEntity.status(HttpStatus.CREATED).body(transacaoNova);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarTransacao(@PathVariable  Long id){
+        service.deletarTransacao(id);
+        return ResponseEntity.noContent().build();
     }
 }
