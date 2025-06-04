@@ -14,6 +14,13 @@
             this.repository = repository;
         }
 
+        public Produto criarUmProduto(Produto produto){
+            if(produto.getEstoque() != null) {
+                produto.getEstoque().setProduto(produto);
+            }
+            return repository.save(produto);
+        }
+
         public Produto buscarUmProduto(Long id){
             return repository.findById(id).orElseThrow(()->
                     new TratadorDeErros.RecursoNaoEncontradoException("Produto com id " + id + "não encontrado"));
@@ -23,14 +30,23 @@
            return repository.findAll();
         }
 
-        public Produto criarUmProduto(Produto produto){
-            if(produto.getEstoque() != null) {
-                produto.getEstoque().setProduto(produto);
+        public Produto atualizarProduto( Long id , Produto produtoNovo){
+            Produto produtoExistente = repository.findById(id).orElseThrow(()->new TratadorDeErros.RecursoNaoEncontradoException("Produto com o id" + id + "não encontrado"));
+
+            produtoExistente.setNome(produtoNovo.getNome());
+            produtoExistente.setPreco(produtoNovo.getPreco());
+
+            if(produtoExistente.getEstoque() != null && produtoNovo.getEstoque() != null){
+                produtoExistente.getEstoque().setQuantidadeAtual(
+                        produtoNovo.getEstoque().getQuantidadeAtual()
+                );
             }
-            return repository.save(produto);
+            return repository.save(produtoExistente);
         }
 
         public void deletarProduto(Long id){
-            repository.deleteById(id);
+            Produto produto = repository.findById(id).
+                    orElseThrow(()-> new TratadorDeErros.RecursoNaoEncontradoException("Produto com id" + id + "não encontrado"));
+            repository.delete(produto);
         }
     }
