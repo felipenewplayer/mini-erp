@@ -32,6 +32,13 @@ public class ClienteController {
         return ResponseEntity.status(HttpStatus.CREATED).body(criandoCliente);
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<Cliente> retornaClienteAtualizado(@PathVariable Long id, @RequestBody Cliente clienteAtualizado){
+        Cliente clienteExistente = service.atualizarCliente(id, clienteAtualizado);
+        return ResponseEntity.status(HttpStatus.CREATED).body(clienteExistente);
+    }
+
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarCliente(@PathVariable Long id){
         service.deletarCliente(id);
