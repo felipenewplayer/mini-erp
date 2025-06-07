@@ -1,3 +1,4 @@
+/*
 package com.example.erp.ERP.ItemPedido;
 
 import com.example.erp.ERP.Produto.ProdutoDto;
@@ -24,3 +25,4 @@ public record ItemPedidoDto(
 {
 
 }
+*/

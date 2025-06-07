@@ -37,9 +37,8 @@
             produtoExistente.setPreco(produtoNovo.getPreco());
 
             if(produtoExistente.getEstoque() != null && produtoNovo.getEstoque() != null){
-                produtoExistente.getEstoque().setQuantidadeAtual(
-                        produtoNovo.getEstoque().getQuantidadeAtual()
-                );
+                produtoExistente.getEstoque().setQuantidade(
+                        produtoNovo.getEstoque().getQuantidade());
             }
             return repository.save(produtoExistente);
         }

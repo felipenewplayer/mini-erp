@@ -18,7 +18,7 @@ public class Estoque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer quantidadeAtual;
+    private Integer quantidade;
 
     @OneToOne
     @JoinColumn(name = "produto_id", unique = true)

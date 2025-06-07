@@ -1,3 +1,4 @@
+/*
 package com.example.erp.ERP.Pedido;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -16,3 +17,4 @@ public class PedidoProducer {
         rabbitTemplate.convertAndSend("pedido.fila", pedido);
     }
 }
+*/

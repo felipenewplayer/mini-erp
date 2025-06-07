@@ -1,3 +1,4 @@
+/*
 package com.example.erp.ERP.Estoque;
 
 import com.example.erp.ERP.Pedido.Pedido;
@@ -12,3 +13,4 @@ public class EstoqueService {
         });
     }
 }
+*/

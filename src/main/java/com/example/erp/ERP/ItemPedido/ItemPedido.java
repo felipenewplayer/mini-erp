@@ -1,3 +1,4 @@
+/*
 package com.example.erp.ERP.ItemPedido;
 
 import com.example.erp.ERP.Pedido.Pedido;
@@ -31,4 +32,4 @@ public class ItemPedido {
     public Double getSubTotal() {
         return quantidade * precoUnitario;
     }
-}
+}*/

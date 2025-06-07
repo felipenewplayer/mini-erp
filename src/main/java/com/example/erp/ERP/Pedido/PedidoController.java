@@ -1,3 +1,4 @@
+/*
 package com.example.erp.ERP.Pedido;
 
 import com.example.erp.ERP.Cliente.ClienteService;
@@ -46,3 +47,4 @@ public class PedidoController {
         return ResponseEntity.noContent().build();
     }
 }
+*/
