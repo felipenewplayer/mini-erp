@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-d0f020mmcj7s738ail5g-a.oregon-postgres.render.com:5432/mydatabase_qsq5
-    username: felps
-    password: LkfXQwBetODXCOWyHW3ca2N6mLqnmmz0
+    url: jdbc:postgresql://postgresdb_bz71_user:iwLLmJTsKPvLmABaI4rETeHQzIeNQ8Ow@dpg-d1338h49c44c738s5qrg-a.oregon-postgres.render.com/postgresdb_bz71
+    username: postgresdb_bz71_user
+    password: iwLLmJTsKPvLmABaI4rETeHQzIeNQ8Ow
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
