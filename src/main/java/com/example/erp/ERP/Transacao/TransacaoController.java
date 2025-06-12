@@ -15,21 +15,29 @@ public class TransacaoController {
         this.service = service;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Transacao> retornaUmaTransacao(@PathVariable Long id){
-        Transacao transacao = service.retornarUmTransacao(id);
-        return ResponseEntity.ok(transacao);
-    }
-    @GetMapping
-    public ResponseEntity<List<Transacao>> listarTodas() {
-        return ResponseEntity.ok(service.buscatListaDeTransacao());
-    }
-
     @PostMapping
     public ResponseEntity<Transacao> criarTransacao(@RequestBody Transacao transacao){
         Transacao transacaoNova = service.criaUmaTransacao(transacao);
         return ResponseEntity.status(HttpStatus.CREATED).body(transacaoNova);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Transacao> retornaUmaTransacao(@PathVariable Long id){
+        Transacao transacao = service.retornarUmTransacao(id);
+        return ResponseEntity.ok(transacao);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Transacao>> listarTodas() {
+        return ResponseEntity.ok(service.buscatListaDeTransacao());
+    }
+
+    @PutMapping
+    public ResponseEntity<Transacao> buscaTransacaoAtualizada (@PathVariable Long id, @RequestBody Transacao transacaoAtualizada) {
+        Transacao transacaoExistente = service.atualizaTransacao(id, transacaoAtualizada);
+        return ResponseEntity.ok(transacaoExistente);
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarTransacao(@PathVariable  Long id){

@@ -15,9 +15,6 @@
         }
 
         public Produto criarUmProduto(Produto produto){
-            if(produto.getEstoque() != null) {
-                produto.getEstoque().setProduto(produto);
-            }
             return repository.save(produto);
         }
 
@@ -34,12 +31,7 @@
             Produto produtoExistente = repository.findById(id).orElseThrow(()->new TratadorDeErros.RecursoNaoEncontradoException("Produto com o id" + id + "não encontrado"));
 
             produtoExistente.setNome(produtoNovo.getNome());
-            produtoExistente.setPreco(produtoNovo.getPreco());
-
-            if(produtoExistente.getEstoque() != null && produtoNovo.getEstoque() != null){
-                produtoExistente.getEstoque().setQuantidade(
-                        produtoNovo.getEstoque().getQuantidade());
-            }
+            produtoExistente.setPrecoUN(produtoNovo.getPrecoUN());
             return repository.save(produtoExistente);
         }
 

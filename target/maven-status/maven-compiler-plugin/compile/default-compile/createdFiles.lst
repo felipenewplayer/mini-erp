@@ -12,12 +12,9 @@ com\example\erp\ERP\Produto\ProdutoController.class
 com\example\erp\ERP\Cliente\ClienteService.class
 com\example\erp\ERP\Transacao\TransacaoService.class
 com\example\erp\ERP\Transacao\TransacaoController.class
-com\example\erp\ERP\Estoque\EstoqueRepository.class
 com\example\erp\ERP\Config\CorsConfiguration.class
 com\example\erp\ERP\Produto\ProdutoRepository.class
 com\example\erp\ERP\Cliente\Cliente$ClienteBuilder.class
 com\example\erp\ERP\Estoque\Estoque.class
 com\example\erp\ERP\Config\TratadorDeErros.class
-com\example\erp\ERP\Produto\ProdutoDto.class
 com\example\erp\ERP\Transacao\TransacaoRepository.class
-com\example\erp\ERP\Cliente\ClienteDto.class

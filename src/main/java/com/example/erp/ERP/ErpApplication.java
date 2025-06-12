@@ -12,4 +12,4 @@ ErpApplication {
 		SpringApplication.run(ErpApplication.class, args);
 	}
 
-}
+}	

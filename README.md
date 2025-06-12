@@ -15,9 +15,9 @@ O Mini-ERP é um sistema de gestão empresarial desenvolvido em Java com Spring 
 | Camada         | Tecnologia                    |
 | -------------- | ----------------------------- |
 | Backend        | Spring Boot 3.4.5 + Java 21   |
-| Banco de Dados | MySQL (via Docker Compose)    |
+| Banco de Dados | PostgreSql na nuvem do render |
 | Build Tool     | Maven                         |
-| Deploy         | Docker/Docker Compose         |
+| Deploy         | Render                        |
 | API Doc        | Swagger (SpringDoc)           |
 | Segurança      | Spring Security (futuro)      |
 | Logs           | Spring Boot Actuator (futuro) |
