@@ -1,17 +1,16 @@
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Cliente\Cliente.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Cliente\ClienteController.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Cliente\ClienteRepository.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Cliente\ClienteService.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Config\CorsConfiguration.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Config\TratadorDeErros.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\ErpApplication.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Estoque\Estoque.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Produto\Produto.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Produto\ProdutoController.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Produto\ProdutoRepository.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Produto\ProdutoService.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Transacao\Status.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Transacao\Transacao.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Transacao\TransacaoController.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Transacao\TransacaoRepository.java
-C:\Users\felip\OneDrive\Área de Trabalho\Felipe\TI\Programação\Projetos\Java\ERP\backend\src\main\java\com\example\erp\ERP\Transacao\TransacaoService.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Cliente\Cliente.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Cliente\ClienteController.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Cliente\ClienteRepository.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Cliente\ClienteService.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Config\CorsConfiguration.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Config\TratadorDeErros.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\ErpApplication.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Produto\Produto.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Produto\ProdutoController.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Produto\ProdutoRepository.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Produto\ProdutoService.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Transacao\Status.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Transacao\Transacao.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Transacao\TransacaoController.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Transacao\TransacaoRepository.java
+C:\Projetos\ERP\backend\src\main\java\com\example\erp\ERP\Transacao\TransacaoService.java

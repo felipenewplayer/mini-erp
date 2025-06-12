@@ -15,6 +15,5 @@ com\example\erp\ERP\Transacao\TransacaoController.class
 com\example\erp\ERP\Config\CorsConfiguration.class
 com\example\erp\ERP\Produto\ProdutoRepository.class
 com\example\erp\ERP\Cliente\Cliente$ClienteBuilder.class
-com\example\erp\ERP\Estoque\Estoque.class
 com\example\erp\ERP\Config\TratadorDeErros.class
 com\example\erp\ERP\Transacao\TransacaoRepository.class
