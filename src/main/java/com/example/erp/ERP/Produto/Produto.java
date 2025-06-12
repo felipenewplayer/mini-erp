@@ -10,21 +10,25 @@
     @Data
     public class Produto {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            private Long id;
 
-        @Column(nullable = false)
-        private String nome;
+            @Column(nullable = false)
+            private String nome;
 
-        private Double precoUN;
-        private  Integer quantidade;
+            @Enumerated(EnumType.STRING)
+            private Categoria categoria;
 
-        @Transient
-        public Double getPrecoTotal() {
-            if (quantidade != null && precoUN != null) {
-                return quantidade * precoUN;
+            private Double precoUN;
+
+            private  Integer quantidade;
+
+            @Transient
+            public Double getPrecoTotal() {
+                if (quantidade != null && precoUN != null) {
+                    return quantidade * precoUN;
+                }
+                return 0.0;
             }
-            return 0.0;
-        }
     }

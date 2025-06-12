@@ -31,6 +31,8 @@
             Produto produtoExistente = repository.findById(id).orElseThrow(()->new TratadorDeErros.RecursoNaoEncontradoException("Produto com o id" + id + "não encontrado"));
 
             produtoExistente.setNome(produtoNovo.getNome());
+            produtoExistente.setCategoria(produtoNovo.getCategoria());
+            produtoExistente.setQuantidade(produtoNovo.getQuantidade());
             produtoExistente.setPrecoUN(produtoNovo.getPrecoUN());
             return repository.save(produtoExistente);
         }
