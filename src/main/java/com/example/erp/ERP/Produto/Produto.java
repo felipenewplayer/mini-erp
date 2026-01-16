@@ -1,34 +1,46 @@
-    package com.example.erp.ERP.Produto;
+        package com.example.erp.ERP.Produto;
 
-    import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-    import jakarta.persistence.*;
-    import lombok.Data;
+        import com.fasterxml.jackson.annotation.JsonFormat;
+        import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+        import jakarta.persistence.*;
+        import lombok.Data;
+        import org.springframework.format.annotation.DateTimeFormat;
 
-    @Entity
-    @Table(name = "produtos")
-    @JsonIgnoreProperties("produto")
-    @Data
-    public class Produto {
+        import java.time.LocalDate;
 
-            @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
-            private Long id;
+        @Entity
+        @Table(name = "produtos")
+        @JsonIgnoreProperties("produto")
+        @Data
+        public class Produto {
 
-            @Column(nullable = false)
-            private String nome;
+                @Id
+                @GeneratedValue(strategy = GenerationType.IDENTITY)
+                private Long id;
 
-            @Enumerated(EnumType.STRING)
-            private Categoria categoria;
+                @Column(nullable = false)
+                private String nome;
 
-            private Double precoUN;
+                private Integer CodigoDoProduto;
 
-            private  Integer quantidade;
+                @Enumerated(EnumType.STRING)
+                private Categoria categoria;
 
-            @Transient
-            public Double getPrecoTotal() {
-                if (quantidade != null && precoUN != null) {
-                    return quantidade * precoUN;
+                private  Integer quantidade;
+
+                private Double precoUN;
+
+                private Integer estoqueMinimo;
+                private Integer estoqueMaximo;
+
+                @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+                private LocalDate dataDeEntrada;
+
+                @Transient
+                public Double getPrecoTotal() {
+                    if (quantidade != null && precoUN != null) {
+                        return quantidade * precoUN;
+                    }
+                    return 0.0;
                 }
-                return 0.0;
-            }
-    }
+        }

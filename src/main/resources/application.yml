@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-d1338h49c44c738s5qrg-a.oregon-postgres.render.com/postgresdb_bz71
-    username: postgresdb_bz71_user
-    password: iwLLmJTsKPvLmABaI4rETeHQzIeNQ8Ow
+    url: jdbc:postgresql://dpg-d5ko42mid0rc73akupr0-a.oregon-postgres.render.com:5432/erp_data_base
+    username: erp_data_base_user
+    password: p5gO4aWBU2UkaBz9pGnclrNJBTAoYRUo
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
