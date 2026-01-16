@@ -21,7 +21,7 @@
 
                 private Integer CodigoDoProduto;
 
-                @Enumerated(EnumType.STRING)
+                // @Enumerated(EnumType.STRING)
                 private Categoria categoria;
 
                 private  Integer quantidade;
