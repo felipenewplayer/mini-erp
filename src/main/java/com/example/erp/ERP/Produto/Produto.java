@@ -1,14 +1,12 @@
         package com.example.erp.ERP.Produto;
 
         import com.fasterxml.jackson.annotation.JsonFormat;
-        import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
         import jakarta.persistence.*;
         import lombok.Data;
         import java.time.LocalDate;
 
         @Entity
         @Table(name = "produtos")
-        @JsonIgnoreProperties("produto")
         @Data
         public class Produto {
 
@@ -19,12 +17,14 @@
                 @Column(nullable = false)
                 private String nome;
 
-                private Integer CodigoDoProduto;
+                @Column(name = "codigo_produto")
+                private Integer codigoDoProduto;
 
-                // @Enumerated(EnumType.STRING)
+                @Enumerated(EnumType.STRING)
+                @Column(nullable = false)
                 private Categoria categoria;
 
-                private  Integer quantidade;
+                private Integer quantidade;
 
                 private Double precoUN;
 
@@ -36,9 +36,10 @@
 
                 @Transient
                 public Double getPrecoTotal() {
-                    if (quantidade != null && precoUN != null) {
-                        return quantidade * precoUN;
-                    }
-                    return 0.0;
+                        if (quantidade != null && precoUN != null) {
+                                return quantidade * precoUN;
+                        }
+                        return 0.0;
                 }
         }
+
